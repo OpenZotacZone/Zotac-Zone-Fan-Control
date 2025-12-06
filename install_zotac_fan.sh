@@ -7,7 +7,7 @@ INSTALL_DIR="/var/opt/zotac-zone-driver"
 
 # --- Root Check ---
 if [ "$EUID" -ne 0 ]; then
-  echo "❌ Please run as root (sudo ./install_zotac_bazzite.sh)"
+  echo "❌ Please run as root (sudo ./install_zotac_fan.sh)"
   exit 1
 fi
 
