@@ -1,4 +1,6 @@
 # Zotac ZONE Fan Control
+[![OpenZONE Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/YFhK768cex)
+
 Install script for Bazzite/Fedora Atomic based distributions
 
 ## Description
