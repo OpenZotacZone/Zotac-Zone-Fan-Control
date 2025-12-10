@@ -7,8 +7,27 @@ INSTALL_DIR="/var/opt/zotac-zone-driver"
 
 # --- Root Check ---
 if [ "$EUID" -ne 0 ]; then
-  echo "❌ Please run as root (sudo ./install_zotac_fan.sh)"
+  echo "❌ Please run as root (sudo ./install_zotac_bazzite.sh)"
   exit 1
+fi
+
+# --- Secure Boot Check (Added) ---
+# This prevents the "Key was rejected by service" error by warning the user early.
+if command -v mokutil &> /dev/null; then
+    if mokutil --sb-state | grep -q "enabled"; then
+        echo "================================================================"
+        echo "⚠️  CRITICAL WARNING: Secure Boot is ENABLED"
+        echo "================================================================"
+        echo "   The Zotac kernel driver is unsigned. If you proceed, the"
+        echo "   kernel will likely block it with: 'Key was rejected by service'."
+        echo ""
+        echo "   You must DISABLE Secure Boot in your BIOS for this to work."
+        echo "   (Restart -> BIOS -> Security/Boot -> Secure Boot -> Disabled)"
+        echo "================================================================"
+        echo "   Pausing for 10 seconds to let you read this..."
+        echo "   (Press Ctrl+C to cancel and go disable it now)"
+        sleep 10
+    fi
 fi
 
 # Get the Real User (the one who called sudo)
