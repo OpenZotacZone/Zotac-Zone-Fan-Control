@@ -22,11 +22,11 @@ if command -v mokutil &> /dev/null; then
         echo "   kernel will likely block it with: 'Key was rejected by service'."
         echo ""
         echo "   You must DISABLE Secure Boot in your BIOS for this to work."
-        echo "   (Restart -> BIOS -> Security/Boot -> Secure Boot -> Disabled)"
+        echo "   (Restart -> BIOS (F7) -> Security/Boot -> Secure Boot -> Disabled)"
         echo "================================================================"
-        echo "   Pausing for 10 seconds to let you read this..."
+        echo "   Pausing for 30 seconds to let you read this..."
         echo "   (Press Ctrl+C to cancel and go disable it now)"
-        sleep 10
+        sleep 30
     fi
 fi
 
